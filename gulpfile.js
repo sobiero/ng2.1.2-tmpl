@@ -72,7 +72,12 @@ gulp.task('systemjs', function() {
 });
 
 // TypeScript compile
-gulp.task('compile', ['clean', 'build-app', 'html', 'systemjs', 'copy:assets', 'copy:libs', 'bundle-angular']);
+
+gulp.task('build-app', ['html', 'systemjs', 'copy:assets', 'copy:libs', 'bundle-angular']);
+
+gulp.task('clean', ['build-app']);
+
+gulp.task('compile', ['clean']);
 
 gulp.task('build', ['compile']);
 gulp.task('default', ['build']);
